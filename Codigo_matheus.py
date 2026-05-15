@@ -1,11 +1,12 @@
 import mysql.connector
 
+
 def conectar():
     return mysql.connector.connect(
         host="127.0.0.1",
         user="root",
         password="Senac2026",
-        database="Escola",
+        database="Escola"
     )
 
 
@@ -16,14 +17,20 @@ def validar(nome, idade, turma, nota1, nota2, nota3):
         return False
 
     try:
-        int(idade)
-    except:
+        idade = int(idade)
+
+        if idade <= 0:
+            print("Erro: Idade deve ser maior que 0.")
+            return False
+
+    except ValueError:
         print("Erro: Idade deve ser um número.")
         return False
 
     try:
-        int(turma)
-    except:
+        turma = int(turma)
+
+    except ValueError:
         print("Erro: Turma deve ser um número.")
         return False
 
@@ -39,12 +46,12 @@ def validar(nome, idade, turma, nota1, nota2, nota3):
         if nota2 < 0 or nota2 > 10:
             print("Erro: Nota 2 deve estar entre 0 e 10.")
             return False
-        
+
         if nota3 < 0 or nota3 > 10:
             print("Erro: Nota 3 deve estar entre 0 e 10.")
             return False
-        
-    except:
+
+    except ValueError:
         print("Erro: As notas devem ser números.")
         return False
 
@@ -83,6 +90,9 @@ def cadastrar_aluno():
 
     if validar(nome, idade, turma, nota1, nota2, nota3):
 
+        idade = int(idade)
+        turma = int(turma)
+
         nota1 = float(nota1)
         nota2 = float(nota2)
         nota3 = float(nota3)
@@ -96,17 +106,18 @@ def cadastrar_aluno():
             situacao = "REPROVADO"
 
         sql = """
-        INSERT INTO clientes
-        (nome, idade, turma, nota1, nota2, soma, media, situacao)
-        VALUES (%s, %s, %s, %s, %s, %s, %s, %s)
+        INSERT INTO aluno
+        (nome, idade, turma, nota1, nota2, nota3, soma, media, situacao)
+        VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)
         """
 
         executar(sql, (
             nome,
-            int(idade),
-            int(turma),
+            idade,
+            turma,
             nota1,
             nota2,
+            nota3,
             soma,
             media,
             situacao
@@ -118,18 +129,18 @@ def cadastrar_aluno():
         print(f"Situação: {situacao}")
 
     else:
-        print("Falha no cadastro. Tente novamente.")
+        print("Falha no cadastro.")
 
 
 def deletar_aluno():
 
     try:
 
-        cliente_id = int(input("ID do aluno: "))
+        aluno_id = int(input("ID do aluno: "))
 
         executar(
             "DELETE FROM clientes WHERE id = %s",
-            (cliente_id,)
+            (aluno_id,)
         )
 
         print("Aluno removido com sucesso.")
@@ -151,6 +162,7 @@ def lista():
         turma,
         nota1,
         nota2,
+        nota3,
         soma,
         media,
         situacao
@@ -167,20 +179,19 @@ def lista():
 
         for aluno in alunos:
 
-            print(
-                f"""
+            print(f"""
 ID: {aluno[0]}
 Nome: {aluno[1]}
 Idade: {aluno[2]}
 Turma: {aluno[3]}
 Nota 1: {aluno[4]}
 Nota 2: {aluno[5]}
-Soma: {aluno[6]}
-Média: {aluno[7]:.2f}
-Situação: {aluno[8]}
+Nota 3: {aluno[6]}
+Soma: {aluno[7]}
+Média: {aluno[8]:.2f}
+Situação: {aluno[9]}
 -----------------------------
-"""
-            )
+""")
 
 
 def menu():
