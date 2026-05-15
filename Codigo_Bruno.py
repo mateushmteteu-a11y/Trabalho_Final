@@ -29,3 +29,26 @@ def cadastrar_aluno():
     if not idade.isdigit():
         print("Idade inválida ")
         return
+    
+    turma = input("Turma: ")
+
+    aluno = {
+        "nome": nome, 
+        "idade": idade, 
+        "turma": turma,
+        "notas": []
+    }
+    
+    alunos.append(aluno)
+    print("Aluno cadastrado com sucesso!")
+
+#LISTAR ALUNOS
+def listar_alunos():
+    if len(alunos) == 0:
+        print("Nunhum aluno cadastrado.")
+        return
+    
+    for i, aluno in enumerate(alunos):
+
+        média = calcular_média(aluno["notas"])
+        status = situação(média)
