@@ -130,7 +130,7 @@ def deletar_aluno():
         aluno_id = int(input("ID do aluno: "))
 
         executar(
-            "DELETE FROM clientes WHERE id = %s",
+            "DELETE FROM aluno WHERE id = %s",
             (aluno_id,)
         )
 
@@ -143,36 +143,20 @@ def deletar_aluno():
 def lista():
 
     print("\n=== Lista de Alunos ===")
+    conn = conectar()
+    cursor = conn.cursor()
+    cursor.execute("SELECT * FROM Aluno")
+    resultado = cursor.fetchall()
+    
+    for linha in resultado:
+        if len(linha) == 0:
+            print("nenhum aluno encontrado")
+        else:
+            print(f"id: {linha[0]} | aluno: {linha[1]} | idade: {linha[2]} | turma: {linha[3]} | nota1: {linha[4]} | nota2: {linha[5]} | nota3: {linha[6]} | soma: {linha[7]} | média: {linha[8]} | situação: {linha[9]}")
+    cursor.close()
+    conn.close()
 
-    alunos = executar(
-        """
-        SELECT * FROM clientes
-        """,
-        fetch=True
-    )
-
-    if len(alunos) == 0:
-
-        print("Nenhum aluno cadastrado.")
-
-    else:
-
-        for aluno in alunos:
-
-            print(f"""
-ID: {aluno[0]}
-Nome: {aluno[1]}
-Idade: {aluno[2]}
-Turma: {aluno[3]}
-Nota 1: {aluno[4]}
-Nota 2: {aluno[5]}
-Nota 3: {aluno[6]}
-Soma: {aluno[7]}
-Média: {aluno[8]:.2f}
-Situação: {aluno[9]}
------------------------------
-""")
-
+    
 
 def menu():
 

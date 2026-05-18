@@ -10,6 +10,7 @@ CREATE DATABASE IF NOT EXISTS Escola;
     nota1 decimal(4,2),
     nota2 decimal(4,2),
     nota3 decimal(4,2),
+    soma decimal(4,2),
 	media decimal(4,2),
 	situacao varchar(1000)
  );
