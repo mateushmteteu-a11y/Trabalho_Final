@@ -9,9 +9,9 @@ def calcular_média(notas):
 
 #VERIFICAR SITUAÇÃO:
 def situação(média):
-    if média >= 7:
+    if média >= 7.0:
         return "Aprovado"
-    elif média >= 5:
+    elif média >= 5.0:
         return "Reprovado"
     else:
         return "reprovado"
