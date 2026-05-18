@@ -62,8 +62,9 @@ def executar(sql, params=None, fetch=False):
 
     conexao = conectar()
     cursor = conexao.cursor()
-
+    
     cursor.execute(sql, params or ())
+    
 
     resultado = None
 
@@ -91,7 +92,7 @@ def cadastrar_aluno():
     if validar(nome, idade, turma, nota1, nota2, nota3):
 
         idade = int(idade)
-        turma = int(turma)
+        turma = (turma)
 
         nota1 = float(nota1)
         nota2 = float(nota2)
@@ -110,18 +111,8 @@ def cadastrar_aluno():
         (nome, idade, turma, nota1, nota2, nota3, soma, media, situacao)
         VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)
         """
-
-        executar(sql, (
-            nome,
-            idade,
-            turma,
-            nota1,
-            nota2,
-            nota3,
-            soma,
-            media,
-            situacao
-        ))
+        valores = (nome, idade, turma, nota1, nota2, nota3, soma, media, situacao)
+        executar(sql, valores)
 
         print("\nAluno cadastrado com sucesso!")
         print(f"Soma das notas: {soma}")
@@ -155,18 +146,7 @@ def lista():
 
     alunos = executar(
         """
-        SELECT
-        id,
-        nome,
-        idade,
-        turma,
-        nota1,
-        nota2,
-        nota3,
-        soma,
-        media,
-        situacao
-        FROM clientes
+        SELECT * FROM clientes
         """,
         fetch=True
     )
