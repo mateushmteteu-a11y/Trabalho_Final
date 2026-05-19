@@ -263,11 +263,12 @@ def editar_aluno():
     resultado = cursor.fetchall()
     
     for linha in resultado:
-        if len(linha) == 0:
-            print("nenhum aluno encontrado")
-        else:
-            print(f"id: {linha[0]} | aluno: {linha[1]} | idade: {linha[2]} | turma: {linha[3]} | situação: {linha[9]}")
+        print(f"id: {linha[0]} | aluno: {linha[1]} | idade: {linha[2]} | turma: {linha[3]} | situação: {linha[9]}")
+    
     a_id = input("Digite o id do aluno a ser editado: ")
+    if not cursor.execute("SELECT * FROM Aluno"):
+            print("Erro: Aluno não encontrado.")
+            return
     nome = input("Digite o nome: ")
     idade = input("Digite a idade: ")
     turma = input("Digite a turma: ")
