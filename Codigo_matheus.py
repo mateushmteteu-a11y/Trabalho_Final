@@ -220,13 +220,13 @@ def deletar_nota():
 
 
         if opcao_nota == "1":
-            n1 = 0.0
+            n1 = 0
             print("Nota 1 deletada!")
         elif opcao_nota == "2":
-            n2 = 0.0
+            n2 = 0
             print("Nota 2 deletada!")
         elif opcao_nota == "3":
-            n3 = 0.0
+            n3 = 0
             print("Nota 3 deletada!")
         else:
             print("Opção inválida. Operação cancelada.")
