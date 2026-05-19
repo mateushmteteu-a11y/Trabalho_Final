@@ -255,7 +255,31 @@ def deletar_nota():
     except Exception as e:
         print("Erro:", e)
 
-
+def editar_aluno():
+    print("\n=== Editor de Alunos ===")
+    conn = conectar()
+    cursor = conn.cursor()
+    cursor.execute("SELECT * FROM Aluno")
+    resultado = cursor.fetchall()
+    
+    for linha in resultado:
+        if len(linha) == 0:
+            print("nenhum aluno encontrado")
+        else:
+            print(f"id: {linha[0]} | aluno: {linha[1]} | idade: {linha[2]} | turma: {linha[3]} | situação: {linha[9]}")
+    a_id = input("Digite o id do aluno a ser editado: ")
+    nome = input("Digite o nome: ")
+    idade = input("Digite a idade: ")
+    turma = input("Digite a turma: ")
+    sql = """
+        UPDATE aluno
+        SET nome = %s, idade = %s, turma = %s
+        WHERE id = %s
+        """
+    valores = (nome, idade, turma, a_id)
+    executar(sql, valores)
+    cursor.close()
+    conn.close()
 
 def menu():
 
@@ -267,6 +291,7 @@ def menu():
         print("3 - Deletar aluno")
         print("4 - Adicionar/Atualizar notas")
         print("5 - Deletar nota")
+        print("6 - Editar alunos")
         print("0 - Sair")
 
         opcao = input("Escolha uma opção: ")
@@ -299,6 +324,12 @@ def menu():
             senha = input("Digite a senha de funcionario: ")
             if senha == "X-X":
                 deletar_nota()
+            else:
+                print("Senha incorreta")
+        elif opcao == "6":
+            senha = input("Digite a senha de funcionario: ")
+            if senha == "X-X":
+                editar_aluno()
             else:
                 print("Senha incorreta")
 
