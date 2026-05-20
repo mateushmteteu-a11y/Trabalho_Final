@@ -103,6 +103,8 @@ def cadastrar_aluno():
 
         if media >= 7:
             situacao = "APROVADO"
+        elif media >= 6:
+            situacao = "RECUPERAÇÃO"
         else:
             situacao = "REPROVADO"
 
