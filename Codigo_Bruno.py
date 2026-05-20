@@ -7,6 +7,7 @@ def calcular_média(notas):
         return 0 
     return sum(notas) / len(notas)
 
+
 #VERIFICAR SITUAÇÃO:
 def situação(média):
     if média >= 7.0:
@@ -15,6 +16,7 @@ def situação(média):
         return "Reprovado"
     else:
         return "reprovado"
+    
     
 #CADASTRAR ALUNO:
 def cadastrar_aluno():
@@ -42,6 +44,7 @@ def cadastrar_aluno():
     alunos.append(aluno)
     print("Aluno cadastrado com sucesso!")
 
+
 #LISTAR ALUNOS:
 def listar_alunos():
     if len(alunos) == 0:
@@ -61,6 +64,7 @@ def listar_alunos():
         print(f"Média: {média:.2f}")
         print(f"Situação: {status}")
 
+
 #EDITAR ALUNOS:
 def editar_aluno():
     listar_alunos()
@@ -78,6 +82,7 @@ def editar_aluno():
     print("Aluno atualizado!")
 
 
+
 #REMOVER ALUNOS:
 def remover_aluno():
     listar_alunos()
@@ -91,6 +96,7 @@ def remover_aluno():
     alunos.pop(id_aluno)
  
     print("Aluno removido!")
+
  
  # ADICIONAR NOTAS:
 def adicionar_notas():
@@ -109,6 +115,7 @@ def adicionar_notas():
         alunos[id_aluno]["notas"].append(nota)
  
     print("Notas adicionadas!")
+
 
 # REMOVER NOTA:
 def remover_nota():
@@ -131,6 +138,7 @@ def remover_nota():
     alunos[id_aluno]["notas"].pop(indice)
  
     print("Nota removida!")
+    
  
 # MENU
 while True:
@@ -170,3 +178,4 @@ while True:
  
     else:
         print("Opção inválida!")
+        

@@ -242,7 +242,13 @@ def deletar_nota():
 
         soma = n1 + n2 + n3
         media = soma / 3
-        situacao = "APROVADO" if media >= 7 else "REPROVADO"
+        if media >= 7:
+            situacao = "APROVADO"
+        elif media >= 6:
+            situacao = "RECUPERAÇÃO"
+        else:
+            situacao = "REPROVADO"
+
 
 
         sql = """
