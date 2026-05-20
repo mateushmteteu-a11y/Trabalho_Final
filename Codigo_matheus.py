@@ -178,7 +178,12 @@ def adicionar_nota():
 
             soma = nota1 + nota2 + nota3
             media = soma / 3
-            situacao = "APROVADO" if media >= 7 else "REPROVADO"
+            if media >= 7:
+                situacao = "APROVADO"
+            elif media >= 6:
+                situacao = "RECUPERAÇÃO"
+            else:
+                situacao = "REPROVADO"
 
             sql = """
             UPDATE aluno 
