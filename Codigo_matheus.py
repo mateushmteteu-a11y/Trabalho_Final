@@ -369,8 +369,8 @@ def editar_aluno():
     for linha in resultado:
         print(f"id: {linha[0]} | aluno: {linha[1]} | idade: {linha[2]} | turma: {linha[3]} | situação de matematica: {linha[12]} | situação de portugues: {linha[15]}")
     
-    a_id = input("Digite o id do aluno a ser editado: ")
-    if not cursor.execute("SELECT * FROM Aluno"):
+    a_id = int(input("Digite o id do aluno a ser editado: "))
+    if not resultado:
             print("Erro: Aluno não encontrado.")
             return
     nome = input("Digite o nome: ")
