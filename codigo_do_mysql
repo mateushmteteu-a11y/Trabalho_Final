@@ -7,12 +7,18 @@ CREATE DATABASE IF NOT EXISTS Escola;
     nome VARCHAR(1000) NOT NULL,
     idade int not null,
     turma int,
-    nota1 decimal(4,2),
-    nota2 decimal(4,2),
-    nota3 decimal(4,2),
-    soma decimal(4,2),
-	media decimal(4,2),
-	situacao varchar(1000)
+    nota1_mat decimal(4,2),
+    nota2_mat decimal(4,2),
+    nota3_mat decimal(4,2),
+    nota1_pot decimal(4,2),
+    nota2_pot decimal(4,2),
+    nota3_pot decimal(4,2),
+    soma_mat decimal(4,2),
+	media_mat decimal(4,2),
+	situacao_mat varchar(1000),
+    soma_pot decimal(4,2),
+	media_pot decimal(4,2),
+	situacao_pot varchar(1000)
  );
  
- select * from aluno
+ select * from Aluno;
