@@ -1,8 +1,13 @@
 from cadastrador import cadastrar_aluno
+
 from deletador import *
+
 from leitor import lista
+
 from adicionador import adicionar_nota
+
 from editor import editar_aluno
+
 
 def menu():
 
