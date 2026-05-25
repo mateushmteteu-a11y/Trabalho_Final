@@ -1,16 +1,10 @@
 from cadastrador import cadastrar_aluno
-
 from deletador import *
-
 from leitor import lista
-
 from adicionador import adicionar_nota
-
 from editor import editar_aluno
 
-
 def menu():
-
     while True:
 
         print("1 - Aluno")
@@ -39,6 +33,7 @@ def menu():
             senha = input("Qual a senha de professor: ")
             if senha == "12345":
                 while True:
+
                     print("\n=== MENU ===")
                     print("1 - Listar alunos")
                     print("2 - Adicionar/Atualizar notas")
@@ -64,6 +59,7 @@ def menu():
             senha = input("Qual a senha de administrador: ")
             if senha == ("ixi"):
                 while True:
+                    
                     print("\n=== MENU ===")
                     print("1 - Cadastrar aluno")
                     print("2 - Listar alunos")
@@ -93,6 +89,5 @@ def menu():
                         print("Opção inválida!")
             else:
                 print("Senha inválida")
-
 
 menu()
