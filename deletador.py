@@ -1,17 +1,22 @@
 from leitor import lista
 from executor import executar
+from conector import conectar
 def deletar_aluno():
 
     try:
-        lista()  
+        lista() 
         aluno_id = int(input("\nID do aluno que deseja deletar: "))
+        resultado = executar("SELECT nome,  FROM aluno WHERE id = %s", (aluno_id,), fetch=True)
+        if not resultado:
+            print("Erro: Aluno não encontrado.")
+            return
         executar(
         "DELETE FROM aluno WHERE id = %s",
         (aluno_id,)
         )
         print("Aluno removido com sucesso.")
     except Exception as e:
-        print("Erro:", e)
+        print("Erro: aluno não achado")
 def deletar_nota():
     """Permite ao usuário escolher uma nota específica para deletar (zerar) e recalcula as médias."""
     try:
