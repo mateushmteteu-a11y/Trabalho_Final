@@ -8,60 +8,86 @@ def menu():
 
     while True:
 
-        print("\n=== MENU ===")
-        print("1 - Cadastrar aluno")
-        print("2 - Listar alunos")
-        print("3 - Deletar aluno")
-        print("4 - Adicionar/Atualizar notas")
-        print("5 - Deletar nota")
-        print("6 - Editar alunos")
+        print("1 - Aluno")
+        print("2 - Professor")
+        print("3 - Secretario")
         print("0 - Sair")
+        usuario = input("Quem é você: ")
 
-        opcao = input("Escolha uma opção: ")
+        if usuario == "1":
+            while True:
+            
+                print("\n=== MENU ===")
+                print("1 - Listar alunos")
+                print("0 - Sair")
+                opcao = input("Escolha uma opção: ")
 
-        if opcao == "1":
-            senha = input("Digite a senha de funcionario: ")
-            if senha == "X-X":
-                cadastrar_aluno()
+                if opcao == "1":
+                    lista()
+                elif opcao == "0":
+                    print("Até mais...")
+                    break
+                else:
+                    print("Opção inválida!")
+
+        elif usuario == "2":
+            senha = input("Qual a senha de professor: ")
+            if senha == "12345":
+                while True:
+                    print("\n=== MENU ===")
+                    print("1 - Listar alunos")
+                    print("2 - Adicionar/Atualizar notas")
+                    print("3 - Deletar nota")
+                    print("0 - Sair")
+                    opcao = input("Escolha uma opção: ")
+
+                    if opcao == "1":
+                        lista()
+                    elif opcao == "2":
+                        adicionar_nota()
+                    elif opcao == "3":
+                        deletar_nota()
+                    elif opcao == "0":
+                        print("Até mais...")
+                        break
+                    else:
+                        print("Opção inválida!")
             else:
-                print("Senha incorreta")
+                print("Senha inválida")
 
-        elif opcao == "2":
-            lista()
+        elif usuario == "3":
+            senha = input("Qual a senha de administrador: ")
+            if senha == ("ixi"):
+                while True:
+                    print("\n=== MENU ===")
+                    print("1 - Cadastrar aluno")
+                    print("2 - Listar alunos")
+                    print("3 - Deletar aluno")
+                    print("4 - Adicionar/Atualizar notas")
+                    print("5 - Deletar nota")
+                    print("6 - Editar alunos")
+                    print("0 - Sair")
+                    opcao = input("Escolha uma opção: ")
 
-        elif opcao == "3":
-            senha = input("Digite a senha de funcionario: ")
-            if senha == "X-X":
-                deletar_aluno()
+                    if opcao == "1":
+                        cadastrar_aluno()
+                    elif opcao == "2":
+                        lista()
+                    elif opcao == "3":
+                        deletar_aluno()
+                    elif opcao == "4":
+                        adicionar_nota()
+                    elif opcao == "5":
+                        deletar_nota()
+                    elif opcao == "6":
+                        editar_aluno()
+                    elif opcao == "0":
+                        print("Até mais...")
+                        break
+                    else:
+                        print("Opção inválida!")
             else:
-                print("Senha incorreta")
-                
-        elif opcao == "4":
-            senha = input("Digite a senha de funcionario: ")
-            if senha == "X-X":
-                adicionar_nota()
-            else:
-                print("Senha incorreta")
-
-        elif opcao == "5":
-            senha = input("Digite a senha de funcionario: ")
-            if senha == "X-X":
-                deletar_nota()
-            else:
-                print("Senha incorreta")
-        elif opcao == "6":
-            senha = input("Digite a senha de funcionario: ")
-            if senha == "X-X":
-                editar_aluno()
-            else:
-                print("Senha incorreta")
-
-        elif opcao == "0":
-            print("Até mais...")
-            break
-
-        else:
-            print("Opção inválida!")
+                print("Senha inválida")
 
 
 menu()
