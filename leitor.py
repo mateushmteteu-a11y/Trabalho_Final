@@ -17,4 +17,3 @@ def lista():
                 """)
     cursor.close()
     conn.close()
-

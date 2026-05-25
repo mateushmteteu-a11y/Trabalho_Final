@@ -7,7 +7,6 @@ def editar_aluno():
     cursor.execute("SELECT * FROM Aluno")
     resultado = cursor.fetchall()
     
-
     for linha in resultado:
         print(f"id: {linha[0]} | aluno: {linha[1]} | idade: {linha[2]} | turma: {linha[3]} | situação de matematica: {linha[12]} | situação de portugues: {linha[15]}")
     

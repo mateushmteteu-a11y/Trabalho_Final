@@ -64,7 +64,6 @@ def deletar_nota():
             print("Opção inválida. Operação cancelada.")
             return
 
-
         somamat = n1mat + n2mat + n3mat
         mediamat = somamat / 3
         if mediamat >= 7:
@@ -81,7 +80,6 @@ def deletar_nota():
             situacaopor = "RECUPERAÇÃO"
         else:
             situacaopor = "REPROVADO"
-
 
         sql = """
         UPDATE aluno 

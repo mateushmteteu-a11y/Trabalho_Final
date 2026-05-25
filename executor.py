@@ -6,7 +6,6 @@ def executar(sql, params=None, fetch=False):
     
     cursor.execute(sql, params or ())
     
-
     resultado = None
 
     if fetch:

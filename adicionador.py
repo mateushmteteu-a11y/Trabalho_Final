@@ -88,4 +88,3 @@ def adicionar_nota():
         print("Erro: ID deve ser um número inteiro.")
     except Exception as e:
         print("Erro:", e)
-

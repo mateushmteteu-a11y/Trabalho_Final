@@ -58,4 +58,3 @@ def validar(nome, idade, turma, nota1mat, nota2mat, nota3mat, nota1pot, nota2pot
         return False
 
     return True
-
