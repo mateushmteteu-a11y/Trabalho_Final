@@ -1,9 +1,10 @@
 from executor import executar
-from leitor import lista
+from leitor import lista_matematica
+from leitor import lista_portugues
 
 def adicionar_nota_matematica():
     try:
-        lista()  
+        lista_matematica()  
         aluno_id = int(input("\nDigite o ID do aluno que deseja atualizar as notas: "))
         
         resultado = executar("SELECT nome FROM aluno WHERE id = %s", (aluno_id,), fetch=True)
@@ -72,7 +73,7 @@ def adicionar_nota_matematica():
 
 def adicionar_nota_portugues():
     try:
-        lista()  
+        lista_portugues()  
         aluno_id = int(input("\nDigite o ID do aluno que deseja atualizar as notas: "))
         
         resultado = executar("SELECT nome FROM aluno WHERE id = %s", (aluno_id,), fetch=True)
@@ -127,7 +128,7 @@ def adicionar_nota_portugues():
         SET situacao_por = %s 
         WHERE id = %s
         """
-        valores = (nota1por, nota2por, nota3por, somapor, mediapor, situacaopor, aluno_id)
+        valores = (situacaopor, aluno_id)
         executar(sql, valores)
         print("\nNotas atualizadas com sucesso!")
         print(f"Nova Média de portugues: {mediapor:.2f} | Situação de portugues: {situacaopor}")
