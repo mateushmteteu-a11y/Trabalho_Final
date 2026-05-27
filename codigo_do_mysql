@@ -4,21 +4,36 @@ CREATE DATABASE IF NOT EXISTS Escola;
  
  CREATE TABLE IF NOT EXISTS Aluno (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    nome VARCHAR(1000) NOT NULL,
+    nome VARCHAR(100) NOT NULL,
     idade int not null,
+    turma int,
+	situacao_mat varchar(20),
+	situacao_pot varchar(20)
+ );
+ CREATE TABLE IF NOT EXISTS Matematica (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    aluno_id INT,
+    nome VARCHAR(100) NOT NULL,
     turma int,
     nota1_mat decimal(4,2),
     nota2_mat decimal(4,2),
     nota3_mat decimal(4,2),
+    soma_mat decimal(4,2),
+	media_mat decimal(4,2),
+	situacao_mat varchar(20),
+    FOREIGN KEY (aluno_id) REFERENCES Aluno(id)
+ );
+ CREATE TABLE IF NOT EXISTS Portugues (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    aluno_id INT,
+    nome VARCHAR(100) NOT NULL,
+    turma int,
     nota1_pot decimal(4,2),
     nota2_pot decimal(4,2),
     nota3_pot decimal(4,2),
-    soma_mat decimal(4,2),
-	media_mat decimal(4,2),
-	situacao_mat varchar(1000),
     soma_pot decimal(4,2),
 	media_pot decimal(4,2),
-	situacao_pot varchar(1000)
+	situacao_pot varchar(20),
+    FOREIGN KEY (aluno_id) REFERENCES Aluno(id)
  );
- 
  select * from Aluno;
