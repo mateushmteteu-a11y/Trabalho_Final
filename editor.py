@@ -8,7 +8,7 @@ def editar_aluno():
     resultado = cursor.fetchall()
     
     for linha in resultado:
-        print(f"id: {linha[0]} | aluno: {linha[1]} | idade: {linha[2]} | turma: {linha[3]} | situação de matematica: {linha[12]} | situação de portugues: {linha[15]}")
+        print(f"id: {linha[0]} | aluno: {linha[1]} | idade: {linha[2]} | turma: {linha[3]} | situação de matematica: {linha[4]} | situação de portugues: {linha[5]}")
     
     aluno_id = int(input("Digite o id do aluno a ser editado: "))
     resultado1 = executar("SELECT nome FROM aluno WHERE id = %s", (aluno_id,), fetch=True)
