@@ -35,7 +35,7 @@ def menu():
                 while True:
 
                     print("\n=== MENU ===")
-                    print("1 - Listar alunos")
+                    print("1 - Listas")
                     print("2 - Adicionar/Atualizar notas")
                     print("3 - Deletar nota")
                     print("0 - Sair")
@@ -92,7 +92,7 @@ def menu():
                     
                     print("\n=== MENU ===")
                     print("1 - Cadastrar aluno")
-                    print("2 - Listar alunos")
+                    print("2 - Listas")
                     print("3 - Deletar aluno")
                     print("4 - Adicionar/Atualizar notas")
                     print("5 - Deletar nota")

@@ -25,17 +25,22 @@ def cadastrar_aluno():
     except ValueError:
         print("Erro: Turma deve ser um número.")
         return False
+    
+    situacaomat = "PEDENDE"
+    situacaopor = "PEDENDE"
 
     sql = """
     INSERT INTO aluno
-    (nome, idade, turma)
-    VALUES (%s, %s, %s)
+    (nome, idade, turma, situacao_mat, situacao_por)
+    VALUES (%s, %s, %s, %s, %s)
     """
 
     executar(sql, (
             nome,
             idade,
             turma,
+            situacaomat,
+            situacaopor
              ))
 
 

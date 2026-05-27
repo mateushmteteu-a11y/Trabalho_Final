@@ -1,10 +1,10 @@
 from executor import executar
-from leitor import lista_matematica
-from leitor import lista_portugues
+from leitor import *
+
 
 def adicionar_nota_matematica():
     try:
-        lista_matematica()  
+        lista_alunos()  
         aluno_id = int(input("\nDigite o ID do aluno que deseja atualizar as notas: "))
         
         resultado = executar("SELECT nome FROM aluno WHERE id = %s", (aluno_id,), fetch=True)
@@ -48,19 +48,11 @@ def adicionar_nota_matematica():
             situacaomat = "REPROVADO"
 
             sql = """
-            UPDATE Matematica
-            SET nota1_mat = %s, nota2_mat = %s, nota3_mat = %s, soma_mat = %s, media_mat = %s, situacao_mat = %s
-            WHERE id = %s
+            INSERT INTO Matematica
+            (nota1_mat, nota2_mat, nota3_mat, soma_mat, media_mat, situacao_mat)
+            VALUES (%s, %s, %s, %s, %s, %s)
             """
-            valores = (nota1mat, nota2mat, nota3mat, somamat, mediamat, situacaomat, aluno_id)
-            executar(sql, valores)
-
-            sql = """
-            UPDATE Aluno
-            SET situacao_mat = %s
-            WHERE id = %s
-            """
-            valores = (situacaomat, aluno_id)
+            valores = (nota1mat, nota2mat, nota3mat, somamat, mediamat, situacaomat)
             executar(sql, valores)
 
             print("\nNotas atualizadas com sucesso!")
@@ -73,7 +65,7 @@ def adicionar_nota_matematica():
 
 def adicionar_nota_portugues():
     try:
-        lista_portugues()  
+        lista_alunos() 
         aluno_id = int(input("\nDigite o ID do aluno que deseja atualizar as notas: "))
         
         resultado = executar("SELECT nome FROM aluno WHERE id = %s", (aluno_id,), fetch=True)
@@ -117,11 +109,11 @@ def adicionar_nota_portugues():
                 situacaopor = "REPROVADO"
         
         sql = """
-        UPDATE Portugues
-        SET nota1_por = %s, nota2_por = %s, nota3_por = %s, soma_por = %s, media_por = %s, situacao_por = %s 
-        WHERE id = %s
+        INSERT INTO Portugues
+        (nota1_por, nota2_por, nota3_por, soma_por, media_por, situacao_por)
+        VALUES (%s, %s, %s, %s, %s, %s)
         """
-        valores = (nota1por, nota2por, nota3por, somapor, mediapor, situacaopor, aluno_id)
+        valores = (nota1por, nota2por, nota3por, somapor, mediapor, situacaopor)
         executar(sql, valores)
         sql = """
         UPDATE Aluno
