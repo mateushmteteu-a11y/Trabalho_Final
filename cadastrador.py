@@ -29,7 +29,7 @@ def cadastrar_aluno():
     sql = """
     INSERT INTO aluno
     (nome, idade, turma)
-    VALUES (%s, %s, %s, %s, %s)
+    VALUES (%s, %s, %s)
     """
 
     executar(sql, (
