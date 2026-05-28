@@ -1,16 +1,18 @@
 from executor import executar
 from leitor import *
-
+from conector import conectar
 
 def adicionar_nota_matematica():
     try:
         lista_alunos()  
         aluno_id = int(input("\nDigite o ID do aluno que deseja atualizar as notas: "))
         
-        resultado = executar("SELECT nome FROM aluno WHERE id = %s", (aluno_id,), fetch=True)
+        resultado = executar("SELECT nome, turma FROM aluno WHERE id = %s", (aluno_id,), fetch=True)
         if not resultado:
             print("Erro: Aluno não encontrado.")
             return
+        nome_aluno = resultado[0][0]
+        turma_aluno = resultado[0][1]
 
         print(f"\nAtualizando notas do aluno: {resultado[0][0]}")
         nota1mat = input("Digite a primeira nota de matematica: ")
@@ -46,17 +48,16 @@ def adicionar_nota_matematica():
             situacaomat = "RECUPERAÇÃO"
         else:
             situacaomat = "REPROVADO"
+        sql = """
+            REPLACE INTO Matematica (aluno_id, nome, turma, nota1_mat, nota2_mat, nota3_mat, soma_mat, media_mat, situacao_mat) 
+            VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)
+        """
+        valores = (aluno_id, nome_aluno, turma_aluno, nota1mat, nota2mat, nota3mat, somamat, mediamat, situacaomat)
+        executar(sql, valores)
+        executar("UPDATE Aluno SET situacao_mat = %s WHERE id = %s", (situacaomat, aluno_id))
 
-            sql = """
-            INSERT INTO Matematica
-            (nota1_mat, nota2_mat, nota3_mat, soma_mat, media_mat, situacao_mat)
-            VALUES (%s, %s, %s, %s, %s, %s)
-            """
-            valores = (nota1mat, nota2mat, nota3mat, somamat, mediamat, situacaomat)
-            executar(sql, valores)
-
-            print("\nNotas atualizadas com sucesso!")
-            print(f"Nova Média de matematica: {mediamat:.2f} | Situação de matematica: {situacaomat}")
+        print("\nNotas atualizadas com sucesso!")
+        print(f"Nova Média de matematica: {mediamat:.2f} | Situação de matematica: {situacaomat}")
 
     except ValueError:
         print("Erro: ID deve ser um número inteiro.")
@@ -68,10 +69,12 @@ def adicionar_nota_portugues():
         lista_alunos() 
         aluno_id = int(input("\nDigite o ID do aluno que deseja atualizar as notas: "))
         
-        resultado = executar("SELECT nome FROM aluno WHERE id = %s", (aluno_id,), fetch=True)
+        resultado = executar("SELECT nome, turma FROM aluno WHERE id = %s", (aluno_id,), fetch=True)
         if not resultado:
             print("Erro: Aluno não encontrado.")
             return
+        nome_aluno = resultado[0][0]
+        turma_aluno = resultado[0][1]
 
         print(f"\nAtualizando notas do aluno: {resultado[0][0]}")
         nota1por = input("Digite a primeira nota de portugues: ")
@@ -102,26 +105,20 @@ def adicionar_nota_portugues():
         somapor = nota1por + nota2por + nota3por
         mediapor = somapor / 3
         if mediapor >= 7:
-                situacaopor = "APROVADO"
+            situacaopor = "APROVADO"
         elif mediapor >= 6:
-                situacaopor = "RECUPERAÇÃO"
+            situacaopor = "RECUPERAÇÃO"
         else:
-                situacaopor = "REPROVADO"
+            situacaopor = "REPROVADO"
         
         sql = """
-        INSERT INTO Portugues
-        (nota1_por, nota2_por, nota3_por, soma_por, media_por, situacao_por)
-        VALUES (%s, %s, %s, %s, %s, %s)
+            REPLACE INTO Portugues (aluno_id, nome, turma, nota1_por, nota2_por, nota3_por, soma_por, media_por, situacao_por) 
+            VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)
         """
-        valores = (nota1por, nota2por, nota3por, somapor, mediapor, situacaopor)
+        valores = (aluno_id, nome_aluno, turma_aluno, nota1por, nota2por, nota3por, somapor, mediapor, situacaopor)
         executar(sql, valores)
-        sql = """
-        UPDATE Aluno
-        SET situacao_por = %s 
-        WHERE id = %s
-        """
-        valores = (situacaopor, aluno_id)
-        executar(sql, valores)
+        executar("UPDATE Aluno SET situacao_mat = %s WHERE id = %s", (situacaopor, aluno_id))
+
         print("\nNotas atualizadas com sucesso!")
         print(f"Nova Média de portugues: {mediapor:.2f} | Situação de portugues: {situacaopor}")
         
