@@ -117,7 +117,7 @@ def adicionar_nota_portugues():
         """
         valores = (aluno_id, nome_aluno, turma_aluno, nota1por, nota2por, nota3por, somapor, mediapor, situacaopor)
         executar(sql, valores)
-        executar("UPDATE Aluno SET situacao_mat = %s WHERE id = %s", (situacaopor, aluno_id))
+        executar("UPDATE Aluno SET situacao_por = %s WHERE id = %s", (situacaopor, aluno_id))
 
         print("\nNotas atualizadas com sucesso!")
         print(f"Nova Média de portugues: {mediapor:.2f} | Situação de portugues: {situacaopor}")
