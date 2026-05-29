@@ -4,7 +4,14 @@ def deletar_aluno():
 
     try:
         lista_alunos() 
-        aluno_id = int(input("\nID do aluno que deseja deletar: "))
+        conn = conectar()
+        cursor = conn.cursor()
+        cursor.execute("SELECT * FROM Aluno")
+        resultado = cursor.fetchall()
+        if not resultado:
+            return "Nenhum aluno encontrado."
+        else:
+            aluno_id = int(input("\nID do aluno que deseja deletar: "))
         resultado = executar("SELECT nome FROM aluno WHERE id = %s", (aluno_id,), fetch=True)
         if not resultado:
             print("Erro: Aluno não encontrado.")
@@ -30,8 +37,14 @@ def deletar_nota_matematica():
 
     try:
         lista_matematica()
-        aluno_id = int(input("\nDigite o ID do aluno que deseja deletar a nota: "))
-        
+        conn = conectar()
+        cursor = conn.cursor()
+        cursor.execute("SELECT * FROM Matematica")
+        resultado = cursor.fetchall()
+        if not resultado:
+            return "Nenhuma nota encontrada."
+        else:
+            aluno_id = int(input("\nDigite o ID do aluno que deseja atualizar as notas: "))
 
         resultado = executar("SELECT * FROM Matematica WHERE id = %s", (aluno_id,), fetch=True)
         if not resultado:
@@ -90,8 +103,14 @@ def deletar_nota_portugues():
 
     try:
         lista_portugues()
-        aluno_id = int(input("\nDigite o ID do aluno que deseja deletar a nota: "))
-        
+        conn = conectar()
+        cursor = conn.cursor()
+        cursor.execute("SELECT * FROM Portugues")
+        resultado = cursor.fetchall()
+        if not resultado:
+            return "Nenhuma nota encontrada."
+        else:
+            aluno_id = int(input("\nDigite o ID do aluno que deseja atualizar as notas: "))
 
         resultado = executar("SELECT * FROM Portugues WHERE id = %s", (aluno_id,), fetch=True)
         if not resultado:

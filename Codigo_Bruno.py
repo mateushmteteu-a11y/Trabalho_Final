@@ -138,11 +138,11 @@ while True:
  
     print("\n===== SISTEMA ESCOLAR =====")
     print("1 - Cadastrar aluno")
-    print("2 - Listar alunos")
-    print("3 - Editar aluno")
-    print("4 - Remover aluno")
-    print("5 - Adicionar notas")
-    print("6 - Remover nota")
+    print("2 - Adicionar notas")
+    print("3 - Remover notas")
+    print("4 - Listar alunos")
+    print("5 - Editar aluno")
+    print("6 - Remover aluno")
     print("0 - Sair")
  
     opcao = input("Escolha uma opção: ")
@@ -152,19 +152,19 @@ while True:
         cadastrar_aluno()
  
     elif opcao == "2":
-        listar_alunos()
- 
-    elif opcao == "3":
-        editar_aluno()
- 
-    elif opcao == "4":
-        remover_aluno()
- 
-    elif opcao == "5":
         adicionar_notas()
  
-    elif opcao == "6":
+    elif opcao == "3":
         remover_nota()
+ 
+    elif opcao == "4":
+        listar_alunos()
+ 
+    elif opcao == "5":
+        editar_aluno()
+ 
+    elif opcao == "6":
+        remover_aluno()
  
     elif opcao == "0":
         print("Sistema encerrado.")

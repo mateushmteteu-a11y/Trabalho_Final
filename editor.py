@@ -1,14 +1,18 @@
 from conector import conectar
 from executor import executar
+from leitor import lista_alunos
 def editar_aluno():
     print("\n=== Editor de Alunos ===")
+    lista_alunos()
     conn = conectar()
     cursor = conn.cursor()
     cursor.execute("SELECT * FROM Aluno")
     resultado = cursor.fetchall()
-    
-    for linha in resultado:
-        print(f"id: {linha[0]} | aluno: {linha[1]} | idade: {linha[2]} | turma: {linha[3]} | situação de matematica: {linha[4]} | situação de portugues: {linha[5]}")
+    if not resultado:
+            return "Nenhum aluno encontrado."
+    else:
+        for linha in resultado:
+            print(f"id: {linha[0]} | aluno: {linha[1]} | idade: {linha[2]} | turma: {linha[3]} | situação de matematica: {linha[4]} | situação de portugues: {linha[5]}")
     
     aluno_id = int(input("Digite o id do aluno a ser editado: "))
     resultado1 = executar("SELECT nome FROM aluno WHERE id = %s", (aluno_id,), fetch=True)
