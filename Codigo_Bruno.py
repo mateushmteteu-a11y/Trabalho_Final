@@ -40,7 +40,6 @@ def cadastrar_aluno():
         "turma": turma,
         "notas": []
     }
-    
     alunos.append(aluno)
     print("Aluno cadastrado com sucesso!")
 
@@ -50,7 +49,6 @@ def listar_alunos():
     if len(alunos) == 0:
         print("Nunhum aluno cadastrado.")
         return
-    
     for i, aluno in enumerate(alunos):
 
         média = calcular_média(aluno["notas"])
@@ -80,7 +78,6 @@ def editar_aluno():
     alunos[id_aluno]["turma"] = input("Nova turma: ")
  
     print("Aluno atualizado!")
-
 
 
 #REMOVER ALUNOS:
@@ -126,17 +123,13 @@ def remover_nota():
     if id_aluno < 0 or id_aluno >= len(alunos):
         print("Aluno não encontrado.")
         return
- 
     print(alunos[id_aluno]["notas"])
  
     indice = int(input("Digite o índice da nota: "))
- 
     if indice < 0 or indice >= len(alunos[id_aluno]["notas"]):
         print("Índice inválido.")
         return
- 
     alunos[id_aluno]["notas"].pop(indice)
- 
     print("Nota removida!")
     
  
@@ -153,6 +146,7 @@ while True:
     print("0 - Sair")
  
     opcao = input("Escolha uma opção: ")
+ 
  
     if opcao == "1":
         cadastrar_aluno()
