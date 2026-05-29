@@ -148,8 +148,8 @@ while True:
     print("2 - Adicionar notas")
     print("3 - Remover notas")
     print("4 - Listar alunos")
-    print("5 - Remover alunos")
-    print("6 - Editar aluno")
+    print("5 - Editar aluno")
+    print("6 - Remover aluno")
     print("0 - Sair")
  
     opcao = input("Escolha uma opção: ")
