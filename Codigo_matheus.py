@@ -31,7 +31,7 @@ def menu():
 
         elif usuario == "2":
             senha = input("Qual a senha de professor: ")
-            if senha == "67":
+            if senha == "123":
                 while True:
 
                     print("\n=== MENU ===")
@@ -87,7 +87,7 @@ def menu():
 
         elif usuario == "3":
             senha = input("Qual a senha de administrador: ")
-            if senha == ("LaEle"):
+            if senha == ("123"):
                 while True:
                     
                     print("\n=== MENU ===")
@@ -137,6 +137,8 @@ def menu():
                             deletar_nota_matematica()
                         elif opcao1 == "2":
                             deletar_nota_portugues()
+                        elif opcao1 == "1225":
+                            print(f"When the light is running low \nAnd the shadows start to grow\nAnd the places that you know\nSeem like fantasy\nTheres a light inside your soul\nThats still shining in the cold\nWith the truth\nThe promise in our hearts\nDont forget\nI'm with you in the dark")
                         else:
                             print("Opção inválida!")
 
@@ -150,5 +152,8 @@ def menu():
                         print("Opção inválida!")
             else:
                 print("Senha inválida")
+        else:
+            print("Opção inválida!")
+            
 
 menu()
