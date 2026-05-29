@@ -4,8 +4,15 @@ from conector import conectar
 
 def adicionar_nota_matematica():
     try:
-        lista_alunos()  
-        aluno_id = int(input("\nDigite o ID do aluno que deseja atualizar as notas: "))
+        lista_alunos()
+        conn = conectar()
+        cursor = conn.cursor()
+        cursor.execute("SELECT * FROM Aluno")
+        resultado = cursor.fetchall()
+        if not resultado:
+            return "Nenhum aluno encontrado."
+        else:
+            aluno_id = int(input("\nDigite o ID do aluno que deseja atualizar as notas: "))
         
         resultado = executar("SELECT nome, turma FROM aluno WHERE id = %s", (aluno_id,), fetch=True)
         if not resultado:
@@ -67,7 +74,14 @@ def adicionar_nota_matematica():
 def adicionar_nota_portugues():
     try:
         lista_alunos() 
-        aluno_id = int(input("\nDigite o ID do aluno que deseja atualizar as notas: "))
+        conn = conectar()
+        cursor = conn.cursor()
+        cursor.execute("SELECT * FROM Aluno")
+        resultado = cursor.fetchall()
+        if not resultado:
+            return "Nenhum aluno encontrado."
+        else:
+            aluno_id = int(input("\nDigite o ID do aluno que deseja atualizar as notas: "))
         
         resultado = executar("SELECT nome, turma FROM aluno WHERE id = %s", (aluno_id,), fetch=True)
         if not resultado:
