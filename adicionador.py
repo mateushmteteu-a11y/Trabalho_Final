@@ -115,7 +115,6 @@ def adicionar_nota_portugues():
             print("Erro: As notas devem ser números.")
             return False
         
-
         somapor = nota1por + nota2por + nota3por
         mediapor = somapor / 3
         if mediapor >= 7:

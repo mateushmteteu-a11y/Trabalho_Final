@@ -34,7 +34,6 @@ def deletar_aluno():
     except Exception as e:
         print("Erro:", e)
 def deletar_nota_matematica():
-
     try:
         lista_matematica()
         conn = conectar()
@@ -58,7 +57,6 @@ def deletar_nota_matematica():
         print(f"2 - Nota 2 de matematica(Atual: {n2mat})")
         print(f"3 - Nota 3 de matematica(Atual: {n3mat})")
         opcao_nota = input("Qual nota você deseja deletar/zerar? (1, 2 ou 3): ")
-
 
         if opcao_nota == "1":
             n1mat = 0
@@ -100,7 +98,6 @@ def deletar_nota_matematica():
         print("Erro:", e)
 
 def deletar_nota_portugues():
-
     try:
         lista_portugues()
         conn = conectar()

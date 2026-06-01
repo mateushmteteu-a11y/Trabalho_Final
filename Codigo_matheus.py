@@ -137,12 +137,9 @@ def menu():
                             deletar_nota_matematica()
                         elif opcao1 == "2":
                             deletar_nota_portugues()
-                        elif opcao1 == "1225":
-                            print(f"When the light is running low \nAnd the shadows start to grow\nAnd the places that you know\nSeem like fantasy\nTheres a light inside your soul\nThats still shining in the cold\nWith the truth\nThe promise in our hearts\nDont forget\nI'm with you in the dark")
                         else:
                             print("Opção inválida!")
 
- 
                     elif opcao == "6":
                         editar_aluno()
                     elif opcao == "0":
@@ -154,6 +151,4 @@ def menu():
                 print("Senha inválida")
         else:
             print("Opção inválida!")
-            
-
 menu()
