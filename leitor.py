@@ -27,7 +27,7 @@ def lista_matematica():
             print("Nenhuma nota encontrada.")
     else:
         for aluno in resultado:
-            print(f"""ID: {aluno[0]} | Nome: {aluno[2]} | Turma: {aluno[3]} | Nota 1 de matematica: {aluno[3]} | Nota 2 de matematica: {aluno[4]} | Nota 3 de matematica: {aluno[5]} | Soma de matematica: {aluno[6]} | Media de matematica: {aluno[7]} | Situação de matematica: {aluno[8]}
+            print(f"""ID: {aluno[0]} | Nome: {aluno[1]} | Turma: {aluno[2]} | Nota 1 de matematica: {aluno[3]} | Nota 2 de matematica: {aluno[4]} | Nota 3 de matematica: {aluno[5]} | Soma de matematica: {aluno[6]} | Media de matematica: {aluno[7]} | Situação de matematica: {aluno[8]}
 -----------------------------
                 """)
     cursor.close()
@@ -44,7 +44,7 @@ def lista_portugues():
             print("Nenhum nota encontrada.")
     else:
         for aluno in resultado:
-            print(f"""ID: {aluno[0]} | Nome: {aluno[2]} | Turma: {aluno[3]} | Nota 1 de portugues: {aluno[3]} | Nota 2 de portugues: {aluno[4]} | Nota 3 de portugues: {aluno[5]} | Soma de portugues: {aluno[6]} | Media de portugues: {aluno[7]} | Situação de portugues: {aluno[8]}
+            print(f"""ID: {aluno[0]} | Nome: {aluno[1]} | Turma: {aluno[2]} | Nota 1 de portugues: {aluno[3]} | Nota 2 de portugues: {aluno[4]} | Nota 3 de portugues: {aluno[5]} | Soma de portugues: {aluno[6]} | Media de portugues: {aluno[7]} | Situação de portugues: {aluno[8]}
 -----------------------------
                 """)
     cursor.close()
