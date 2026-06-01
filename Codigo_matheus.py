@@ -7,6 +7,7 @@ from editor import editar_aluno
 def menu():
     while True:
 
+        print("\nSISTEMA ESCOLAR")
         print("1 - Aluno")
         print("2 - Professor")
         print("3 - Secretario")
@@ -30,7 +31,7 @@ def menu():
                     print("Opção inválida!")
 
         elif usuario == "2":
-            senha = input("Qual a senha de professor: ")
+            senha = input("\nQual a senha de professor: ")
             if senha == "123":
                 while True:
 
@@ -42,7 +43,7 @@ def menu():
                     opcao = input("Escolha uma opção: ")
 
                     if opcao == "1":
-                        print("1 - Listar alunos")
+                        print("\n1 - Listar alunos")
                         print("2 - Listar notas de matematica")
                         print("3 - Listar notas de portugues ")
                         opcao1 = input("Escolha uma opção: ")
@@ -56,7 +57,7 @@ def menu():
                             print("Opção inválida!")
 
                     elif opcao == "2":
-                        print("1 - Adicionar notas de matematica")
+                        print("\n1 - Adicionar notas de matematica")
                         print("2 - Adicionar notas de portugues ")
                         opcao1 = input("Escolha uma opção: ")
                         if opcao1 == "1":
@@ -67,7 +68,7 @@ def menu():
                             print("Opção inválida!")
 
                     elif opcao == "3":
-                        print("1 - Deletar notas de matematica")
+                        print("\n1 - Deletar notas de matematica")
                         print("2 - Deletar notas de portugues ")
                         opcao1 = input("Escolha uma opção: ")
                         if opcao1 == "1":
@@ -86,7 +87,7 @@ def menu():
                 print("Senha inválida")
 
         elif usuario == "3":
-            senha = input("Qual a senha de administrador: ")
+            senha = input("\nQual a senha de administrador: ")
             if senha == ("123"):
                 while True:
                     
@@ -103,7 +104,7 @@ def menu():
                     if opcao == "1":
                         cadastrar_aluno()
                     elif opcao == "2":
-                        print("1 - Listar alunos")
+                        print("\n1 - Listar alunos")
                         print("2 - Listar notas de matematica")
                         print("3 - Listar notas de portugues ")
                         opcao1 = input("Escolha uma opção: ")
@@ -119,7 +120,7 @@ def menu():
                         deletar_aluno()
 
                     elif opcao == "4":
-                        print("1 - Adicionar notas de matematica")
+                        print("\n1 - Adicionar notas de matematica")
                         print("2 - Adicionar notas de portugues ")
                         opcao1 = input("Escolha uma opção: ")
                         if opcao1 == "1":
@@ -130,7 +131,7 @@ def menu():
                             print("Opção inválida!")
 
                     elif opcao == "5":
-                        print("1 - Deletar notas de matematica")
+                        print("\n1 - Deletar notas de matematica")
                         print("2 - Deletar notas de portugues ")
                         opcao1 = input("Escolha uma opção: ")
                         if opcao1 == "1":
