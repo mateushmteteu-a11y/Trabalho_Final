@@ -150,6 +150,11 @@ def menu():
                         print("Opção inválida!")
             else:
                 print("Senha inválida")
+
+        elif usuario == "0":
+            print("Até mais...")
+            break
+
         else:
             print("Opção inválida!")
 menu()
