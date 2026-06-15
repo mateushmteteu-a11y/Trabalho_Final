@@ -34,11 +34,9 @@ def adicionar_nota_matematica():
             if nota1mat < 0 or nota1mat > 10:
                 print("Erro: Nota 1 deve estar entre 0 e 10.")
                 return False
-
             if nota2mat < 0 or nota2mat > 10:
                 print("Erro: Nota 2 deve estar entre 0 e 10.")
                 return False
-
             if nota3mat < 0 or nota3mat > 10:
                 print("Erro: Nota 3 deve estar entre 0 e 10.")
                 return False
@@ -103,11 +101,9 @@ def adicionar_nota_portugues():
             if nota1por < 0 or nota1por > 10:
                 print("Erro: Nota 1 deve estar entre 0 e 10.")
                 return False
-
             if nota2por < 0 or nota2por > 10:
                 print("Erro: Nota 2 deve estar entre 0 e 10.")
                 return False
-
             if nota3por < 0 or nota3por > 10:
                 print("Erro: Nota 3 deve estar entre 0 e 10.")
                 return False

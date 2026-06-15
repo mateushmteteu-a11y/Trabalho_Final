@@ -13,7 +13,6 @@ def cadastrar_aluno():
         if idade <= 0:
             print("Erro: Idade deve ser maior que 0.")
             return False
-
     except ValueError:
         print("Erro: Idade deve ser um número.")
         return False
@@ -21,7 +20,6 @@ def cadastrar_aluno():
     turma = input("Digite a turma do aluno: ")
     try:
         turma = int(turma)
-
     except ValueError:
         print("Erro: Turma deve ser um número.")
         return False
@@ -42,6 +40,5 @@ def cadastrar_aluno():
             situacaomat,
             situacaopor
              ))
-
 
     print("\nAluno cadastrado com sucesso!")
