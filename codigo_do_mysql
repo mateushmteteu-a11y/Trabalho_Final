@@ -11,7 +11,6 @@ CREATE TABLE IF NOT EXISTS Aluno (
 	situacao_por varchar(20)
  );
 
-
 CREATE TABLE IF NOT EXISTS Matematica (
     aluno_id INT PRIMARY KEY,
     nome VARCHAR(100) NOT NULL,
@@ -25,7 +24,6 @@ CREATE TABLE IF NOT EXISTS Matematica (
     FOREIGN KEY (aluno_id) REFERENCES Aluno(id) ON DELETE CASCADE
  );
 
-
 CREATE TABLE IF NOT EXISTS Portugues (
     aluno_id INT PRIMARY KEY,
     nome VARCHAR(100) NOT NULL,
@@ -38,7 +36,5 @@ CREATE TABLE IF NOT EXISTS Portugues (
 	situacao_por varchar(20),
     FOREIGN KEY (aluno_id) REFERENCES Aluno(id) ON DELETE CASCADE
  );
-
-
 
 select * from Aluno;
