@@ -1,7 +1,5 @@
 from leitor import *
-
 from executor import executar
-
 
 def deletar_aluno():
 
