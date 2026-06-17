@@ -21,13 +21,11 @@ def situação(média):
 #CADASTRAR ALUNO:
 def cadastrar_aluno():
     nome = input("Nome: ")
-
     if nome == "":
         print("Nome inválido!")
         return
     
     idade = input("Idade: ")
-
     if not idade.isdigit():
         print("Idade inválida ")
         return
@@ -50,7 +48,7 @@ def listar_alunos():
         print("Nunhum aluno cadastrado.")
         return
     for i, aluno in enumerate(alunos):
-
+        
         média = calcular_média(aluno["notas"])
         status = situação(média) 
         print("\n---------------------")
@@ -68,13 +66,14 @@ def editar_aluno():
     listar_alunos()
  
     id_aluno = int(input("Digite o ID do aluno: "))
- 
     if id_aluno < 0 or id_aluno >= len(alunos):
         print("Aluno não encontrado.")
         return
  
     alunos[id_aluno]["nome"] = input("Novo nome: ")
+    
     alunos[id_aluno]["idade"] = int(input("Nova idade: "))
+    
     alunos[id_aluno]["turma"] = input("Nova turma: ")
  
     print("Aluno atualizado!")
@@ -85,7 +84,6 @@ def remover_aluno():
     listar_alunos()
  
     id_aluno = int(input("Digite o ID do aluno: "))
- 
     if id_aluno < 0 or id_aluno >= len(alunos):
         print("Aluno não encontrado.")
         return
@@ -100,7 +98,6 @@ def adicionar_notas():
     listar_alunos()
  
     id_aluno = int(input("Digite o ID do aluno: "))
- 
     if id_aluno < 0 or id_aluno >= len(alunos):
         print("Aluno não encontrado.")
         return
@@ -119,7 +116,6 @@ def remover_nota():
     listar_alunos()
  
     id_aluno = int(input("Digite o ID do aluno: "))
- 
     if id_aluno < 0 or id_aluno >= len(alunos):
         print("Aluno não encontrado.")
         return
@@ -150,26 +146,19 @@ while True:
  
     if opcao == "1":
         cadastrar_aluno()
- 
     elif opcao == "2":
         adicionar_notas()
- 
     elif opcao == "3":
         remover_nota()
- 
     elif opcao == "4":
         listar_alunos()
- 
     elif opcao == "5":
-        editar_aluno()
- 
+        editar_aluno() 
     elif opcao == "6":
         remover_aluno()
- 
     elif opcao == "0":
         print("Sistema encerrado.")
         break
- 
     else:
         print("Opção inválida!")
         

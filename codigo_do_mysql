@@ -1,8 +1,8 @@
 CREATE DATABASE IF NOT EXISTS Escola;
 
- USE Escola;
+USE Escola;
  
- CREATE TABLE IF NOT EXISTS Aluno (
+CREATE TABLE IF NOT EXISTS Aluno (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(100) NOT NULL,
     idade int not null,
@@ -10,7 +10,9 @@ CREATE DATABASE IF NOT EXISTS Escola;
 	situacao_mat varchar(20),
 	situacao_por varchar(20)
  );
- CREATE TABLE IF NOT EXISTS Matematica (
+
+
+CREATE TABLE IF NOT EXISTS Matematica (
     aluno_id INT PRIMARY KEY,
     nome VARCHAR(100) NOT NULL,
     turma int,
@@ -22,7 +24,9 @@ CREATE DATABASE IF NOT EXISTS Escola;
 	situacao_mat varchar(20),
     FOREIGN KEY (aluno_id) REFERENCES Aluno(id) ON DELETE CASCADE
  );
- CREATE TABLE IF NOT EXISTS Portugues (
+
+
+CREATE TABLE IF NOT EXISTS Portugues (
     aluno_id INT PRIMARY KEY,
     nome VARCHAR(100) NOT NULL,
     turma int,
@@ -34,4 +38,7 @@ CREATE DATABASE IF NOT EXISTS Escola;
 	situacao_por varchar(20),
     FOREIGN KEY (aluno_id) REFERENCES Aluno(id) ON DELETE CASCADE
  );
- select * from Aluno;
+
+
+
+select * from Aluno;

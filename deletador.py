@@ -1,5 +1,8 @@
 from leitor import *
+
 from executor import executar
+
+
 def deletar_aluno():
 
     try:
@@ -8,6 +11,7 @@ def deletar_aluno():
         cursor = conn.cursor()
         cursor.execute("SELECT * FROM Aluno")
         resultado = cursor.fetchall()
+        
         if not resultado:
             return "Nenhum aluno encontrado."
         else:
