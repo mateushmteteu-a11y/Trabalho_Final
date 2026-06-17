@@ -1,23 +1,31 @@
 from executor import executar
+
 from leitor import *
+
 from conector import conectar
 
+
+
 def adicionar_nota_matematica():
+    
     try:
         lista_alunos()
         conn = conectar()
         cursor = conn.cursor()
         cursor.execute("SELECT * FROM Aluno")
         resultado = cursor.fetchall()
+        
         if not resultado:
             return "Nenhum aluno encontrado."
         else:
             aluno_id = int(input("\nDigite o ID do aluno que deseja atualizar as notas: "))
         
         resultado = executar("SELECT nome, turma FROM aluno WHERE id = %s", (aluno_id,), fetch=True)
+        
         if not resultado:
             print("Erro: Aluno não encontrado.")
             return
+        
         nome_aluno = resultado[0][0]
         turma_aluno = resultado[0][1]
 
@@ -70,18 +78,21 @@ def adicionar_nota_matematica():
         print("Erro:", e)
 
 def adicionar_nota_portugues():
+    
     try:
         lista_alunos() 
         conn = conectar()
         cursor = conn.cursor()
         cursor.execute("SELECT * FROM Aluno")
         resultado = cursor.fetchall()
+        
         if not resultado:
             return "Nenhum aluno encontrado."
         else:
             aluno_id = int(input("\nDigite o ID do aluno que deseja atualizar as notas: "))
         
         resultado = executar("SELECT nome, turma FROM aluno WHERE id = %s", (aluno_id,), fetch=True)
+        
         if not resultado:
             print("Erro: Aluno não encontrado.")
             return
@@ -133,5 +144,6 @@ def adicionar_nota_portugues():
         
     except ValueError:
         print("Erro: ID deve ser um número inteiro.")
+        
     except Exception as e:
         print("Erro:", e)

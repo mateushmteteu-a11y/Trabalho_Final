@@ -1,4 +1,6 @@
 from conector import conectar
+
+
 def lista_alunos():
 
     print("\n=== Lista de Alunos ===")
@@ -7,6 +9,7 @@ def lista_alunos():
     cursor = conn.cursor()
     cursor.execute("SELECT * FROM Aluno")
     resultado = cursor.fetchall()
+    
     if not resultado:
             print("Nenhum aluno encontrado.")
     else:
@@ -15,6 +18,8 @@ def lista_alunos():
 -----------------------------""")
     cursor.close()
     conn.close()
+    
+    
 def lista_matematica():
 
     print("\n=== Lista de notas de matematica ===")
@@ -23,6 +28,7 @@ def lista_matematica():
     cursor = conn.cursor()
     cursor.execute("SELECT * FROM Matematica")
     resultado = cursor.fetchall()
+    
     if not resultado:
             print("Nenhuma nota encontrada.")
     else:
@@ -32,6 +38,8 @@ def lista_matematica():
                 """)
     cursor.close()
     conn.close()
+    
+    
 def lista_portugues():
 
     print("\n=== Lista de notas de portugues ===")
@@ -40,6 +48,7 @@ def lista_portugues():
     cursor = conn.cursor()
     cursor.execute("SELECT * FROM Portugues")
     resultado = cursor.fetchall()
+    
     if not resultado:
             print("Nenhum nota encontrada.")
     else:
@@ -47,5 +56,6 @@ def lista_portugues():
             print(f"""ID: {aluno[0]} | Nome: {aluno[1]} | Turma: {aluno[2]} | Nota 1 de portugues: {aluno[3]} | Nota 2 de portugues: {aluno[4]} | Nota 3 de portugues: {aluno[5]} | Soma de portugues: {aluno[6]} | Media de portugues: {aluno[7]} | Situação de portugues: {aluno[8]}
 -----------------------------
                 """)
+          
     cursor.close()
     conn.close()

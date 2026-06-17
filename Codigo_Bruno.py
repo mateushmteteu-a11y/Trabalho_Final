@@ -146,19 +146,26 @@ while True:
  
     if opcao == "1":
         cadastrar_aluno()
+        
     elif opcao == "2":
         adicionar_notas()
+        
     elif opcao == "3":
         remover_nota()
+        
     elif opcao == "4":
         listar_alunos()
+        
     elif opcao == "5":
         editar_aluno() 
+        
     elif opcao == "6":
         remover_aluno()
+        
     elif opcao == "0":
         print("Sistema encerrado.")
         break
+    
     else:
         print("Opção inválida!")
         
