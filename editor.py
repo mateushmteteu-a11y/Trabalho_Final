@@ -3,7 +3,6 @@ from executor import executar
 from leitor import lista_alunos
 def editar_aluno():
     print("\n=== Editor de Alunos ===")
-    lista_alunos()
     conn = conectar()
     cursor = conn.cursor()
     cursor.execute("SELECT * FROM Aluno")
