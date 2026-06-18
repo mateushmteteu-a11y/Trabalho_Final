@@ -2,7 +2,7 @@ from executor import executar
 def cadastrar_aluno():
 
     while True:
-        nome = input("Digite o nome do aluno: ")
+        nome = input("Digite o nome do aluno: ").strip()
         if all(c.isalpha() or c.isspace() for c in nome):
             break 
         else:

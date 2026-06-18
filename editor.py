@@ -7,7 +7,6 @@ from leitor import lista_alunos
 
 def editar_aluno():
     print("\n=== Editor de Alunos ===")
-    lista_alunos()
     
     conn = conectar()
     cursor = conn.cursor()
@@ -28,11 +27,14 @@ def editar_aluno():
         return
 
     while True:
-        nome = input("Digite seu nome: ")
+        nome = input("Digite seu nome: ").strip()
         if all(c.isalpha() or c.isspace() for c in nome):
             break 
         else:
             print("Por favor digite um nome válido (somente letras e espaços)")
+        if nome.strip() == "":
+            print("Erro: Nome não pode ser vazio.")
+            return False
             
     idade = input("Digite a idade do aluno: ")
     try:

@@ -139,6 +139,7 @@ def menu():
 
                     elif opcao == "4":
                         editar_aluno()
+                        
                     elif opcao == "0":
                         print("Até mais...")
                         break
