@@ -55,20 +55,10 @@ def menu():
                             print("Opção inválida!")
 
                     elif opcao == "2":
-                        print("\n1 - Adicionar notas de matematica")
-                        opcao1 = input("Escolha uma opção: ")
-                        if opcao1 == "1":
-                            adicionar_nota_matematica()
-                        else:
-                            print("Opção inválida!")
+                        adicionar_nota_matematica()
 
                     elif opcao == "3":
-                        print("\n1 - Deletar notas de matematica")
-                        opcao1 = input("Escolha uma opção: ")
-                        if opcao1 == "1":
-                            deletar_nota_matematica()
-                        else:
-                            print("Opção inválida!")
+                        deletar_nota_matematica()  
 
                     elif opcao == "0":
                         print("Até mais...")
@@ -102,20 +92,10 @@ def menu():
                             print("Opção inválida!")
 
                     elif opcao == "2":
-                        print("\n1 - Adicionar notas de portugues ")
-                        opcao1 = input("Escolha uma opção: ")
-                        if opcao1 == "1":
                             adicionar_nota_portugues()
-                        else:
-                            print("Opção inválida!")
-
+                
                     elif opcao == "3":
-                        print("\n1 - Deletar notas de portugues ")
-                        opcao1 = input("Escolha uma opção: ")
-                        if opcao1 == "1":
                             deletar_nota_portugues()
-                        else:
-                            print("Opção inválida!")
 
                     elif opcao == "0":
                         print("Até mais...")
@@ -134,7 +114,7 @@ def menu():
                     print("1 - Cadastrar aluno")
                     print("2 - Listas")
                     print("3 - Deletar aluno")
-                    print("6 - Editar alunos")
+                    print("4 - Editar alunos")
                     print("0 - Sair")
                     opcao = input("Escolha uma opção: ")
 
