@@ -1,7 +1,13 @@
 from executor import executar
 def cadastrar_aluno():
 
-    nome = input("Nome do aluno: ")
+    while True:
+        nome = input("Digite o nome do aluno: ")
+        if all(c.isalpha() or c.isspace() for c in nome):
+            break 
+        else:
+            print("Por favor digite um nome válido (somente letras e espaços)")
+            return False
     if nome.strip() == "":
         print("Erro: Nome não pode ser vazio.")
         return False

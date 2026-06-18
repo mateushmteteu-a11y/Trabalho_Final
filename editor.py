@@ -17,9 +17,31 @@ def editar_aluno():
     if not resultado1:
         print("Erro: Aluno não encontrado.")
         return
-    nome = input("Digite o nome: ")
-    idade = input("Digite a idade: ")
-    turma = input("Digite a turma: ")
+    while True:
+        nome = input("Digite seu nome: ")
+        if all(c.isalpha() or c.isspace() for c in nome):
+            break 
+        else:
+            print("Por favor digite um nome válido (somente letras e espaços)")
+            
+    idade = input("Digite a idade do aluno: ")
+    try:
+        idade = int(idade)
+
+        if idade <= 0:
+            print("Erro: Idade deve ser maior que 0.")
+            return False
+    except ValueError:
+        print("Erro: Idade deve ser um número.")
+        return False
+
+    turma = input("Digite a turma do aluno: ")
+    try:
+        turma = int(turma)
+    except ValueError:
+        print("Erro: Turma deve ser um número.")
+        return False
+    
     sql = """
         UPDATE aluno
         SET nome = %s, idade = %s, turma = %s
