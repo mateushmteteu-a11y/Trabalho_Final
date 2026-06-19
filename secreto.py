@@ -6,7 +6,7 @@ janela.title("Minha Janela com Imagem")
 janela.geometry("400x400")
 
 
-caminho = r"C:\Users\pedro61685786\Downloads\Captura de tela 2026-05-07 113602 2.png"
+caminho = r"C:\Users\pedro61685786\Pictures\Screenshots\1000013567_82c8130114e74e0a66a51f36d74fc2bc-17_06_2026, 13_33_00.jpg"
 imagem_pil = Image.open(caminho)
 
 
