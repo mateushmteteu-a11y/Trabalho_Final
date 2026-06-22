@@ -122,7 +122,7 @@ def deletar_nota_portugues():
 
         sql = """
         UPDATE portugues 
-        SET nota1_pot = %s, nota2_pot = %s, nota3_pot = %s, soma_pot = %s, media_pot = %s, situacao_pot = %s 
+        SET nota1_por = %s, nota2_por = %s, nota3_por = %s, soma_por = %s, media_por = %s, situacao_por = %s 
         WHERE aluno_id = %s
         """
         valores = (n1por, n2por, n3por, somapor, mediapor, situacaopor, aluno_id)
