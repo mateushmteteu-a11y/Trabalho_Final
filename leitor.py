@@ -15,7 +15,7 @@ def lista_alunos():
     else:
         for aluno in resultado:
             print(f"""ID: {aluno[0]} | Nome: {aluno[1]} | Idade: {aluno[2]} | Turma: {aluno[3]} | Situação de matematica: {aluno[4]} | Situação de portugues: {aluno[5]}
------------------------------""")
+---------------------------------------------------------------------------------------------------------------""")
     cursor.close()
     conn.close()
     
