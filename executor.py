@@ -1,5 +1,6 @@
 from conector import conectar
 
+
 def executar(sql, params=None, fetch=False):
 
     conexao = conectar()

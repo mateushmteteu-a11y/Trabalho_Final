@@ -1,8 +1,13 @@
 from cadastrador import cadastrar_aluno
+
 from deletador import *
+
 from leitor import *
+
 from adicionador import *
+
 from editor import editar_aluno
+
 
 def menu():
     while True:
@@ -70,6 +75,7 @@ def menu():
 
         elif usuario == "3":
             senha = input("\nQual a senha de professor: ")
+            
             if senha == "123":
                 while True:
 

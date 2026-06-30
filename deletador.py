@@ -1,5 +1,7 @@
 from leitor import *
+
 from executor import executar
+
 
 def deletar_aluno():
 
@@ -35,6 +37,8 @@ def deletar_aluno():
 
     except Exception as e:
         print("Erro:", e)
+        
+        
 def deletar_nota_matematica():
     try:
         lista_matematica()
@@ -42,12 +46,14 @@ def deletar_nota_matematica():
         cursor = conn.cursor()
         cursor.execute("SELECT * FROM Matematica")
         resultado = cursor.fetchall()
+        
         if not resultado:
             return "Nenhuma nota encontrada."
         else:
             aluno_id = int(input("\nDigite o ID do aluno que deseja atualizar as notas: "))
 
         resultado = executar("SELECT * FROM Matematica WHERE aluno_id = %s", (aluno_id,), fetch=True)
+        
         if not resultado:
             print("Erro: Aluno não encontrado.")
             return
@@ -69,6 +75,7 @@ def deletar_nota_matematica():
         print("Erro: Digite valores numéricos válidos.")
     except Exception as e:
         print("Erro:", e)
+
 
 def deletar_nota_portugues():
     try:
