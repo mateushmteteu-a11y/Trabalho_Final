@@ -1,4 +1,6 @@
 from executor import executar
+
+
 def cadastrar_aluno():
 
     while True:
@@ -13,17 +15,20 @@ def cadastrar_aluno():
         return False
 
     idade = input("Digite a idade do aluno: ")
+    
     try:
         idade = int(idade)
 
         if idade <= 0:
             print("Erro: Idade deve ser maior que 0.")
             return False
+        
     except ValueError:
         print("Erro: Idade deve ser um número.")
         return False
 
     turma = input("Digite a turma do aluno: ")
+    
     try:
         turma = int(turma)
     except ValueError:
@@ -46,5 +51,6 @@ def cadastrar_aluno():
             situacaomat,
             situacaopor
              ))
+    
 
     print("\nAluno cadastrado com sucesso!")

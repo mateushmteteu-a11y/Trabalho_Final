@@ -42,9 +42,11 @@ def adicionar_nota_matematica():
             if nota1mat < 0 or nota1mat > 10:
                 print("Erro: Nota 1 deve estar entre 0 e 10.")
                 return False
+            
             if nota2mat < 0 or nota2mat > 10:
                 print("Erro: Nota 2 deve estar entre 0 e 10.")
                 return False
+            
             if nota3mat < 0 or nota3mat > 10:
                 print("Erro: Nota 3 deve estar entre 0 e 10.")
                 return False
@@ -55,6 +57,7 @@ def adicionar_nota_matematica():
         
         somamat = nota1mat + nota2mat + nota3mat
         mediamat = somamat / 3
+        
         if mediamat >= 7:
             situacaomat = "APROVADO"
         elif mediamat >= 6:
@@ -88,6 +91,7 @@ def adicionar_nota_portugues():
         
         if not resultado:
             return "Nenhum aluno encontrado."
+        
         else:
             aluno_id = int(input("\nDigite o ID do aluno que deseja atualizar as notas: "))
         
@@ -96,6 +100,7 @@ def adicionar_nota_portugues():
         if not resultado:
             print("Erro: Aluno não encontrado.")
             return
+        
         nome_aluno = resultado[0][0]
         turma_aluno = resultado[0][1]
 
@@ -112,24 +117,29 @@ def adicionar_nota_portugues():
             if nota1por < 0 or nota1por > 10:
                 print("Erro: Nota 1 deve estar entre 0 e 10.")
                 return False
+            
             if nota2por < 0 or nota2por > 10:
                 print("Erro: Nota 2 deve estar entre 0 e 10.")
                 return False
+            
             if nota3por < 0 or nota3por > 10:
                 print("Erro: Nota 3 deve estar entre 0 e 10.")
                 return False
+            
         except ValueError:
             print("Erro: As notas devem ser números.")
             return False
         
         somapor = nota1por + nota2por + nota3por
         mediapor = somapor / 3
+        
         if mediapor >= 7:
-            situacaopor = "APROVADO"
+            situacaopor = "APROVADO"           
         elif mediapor >= 6:
-            situacaopor = "RECUPERAÇÃO"
+            situacaopor = "RECUPERAÇÃO" 
         else:
             situacaopor = "REPROVADO"
+            
         
         sql = """
             REPLACE INTO Portugues (aluno_id, nome, turma, nota1_por, nota2_por, nota3_por, soma_por, media_por, situacao_por) 
